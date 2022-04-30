@@ -3776,7 +3776,15 @@ function library:CreateWindow(options, ...)
 
                 local userinputservice = game:GetService("UserInputService")
 
-                game:GetService("RunService").Heartbeat:Connect(function(dt)
+                -- local __index = gameMetaTable.__index
+                -- gameMetaTable.__index = newcclosure(function(self, index)
+                --     if not checkcaller() then
+                --     end
+                    
+                --     return __index(self, index)
+                -- end
+
+                game:GetService("RunService").RenderStepped:Connect(function(dt)
                     if (showing == true) then
                         print("yep")
                         userinputservice.MouseBehavior = Enum.MouseBehavior.Default
