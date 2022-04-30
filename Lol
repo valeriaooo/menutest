@@ -1,3 +1,5 @@
+local isMenuShowing = true
+
 --[[ Pepsi's UI Library
 Library v0.33 [
     CreateWindow: Function (
@@ -1330,15 +1332,8 @@ function library:CreateWindow(options, ...)
 	function windowFunctions:Visibility(x)
 		if x == nil then
 			main.Visible = not main.Visible
-            local userinputservice = game:GetService("UserInputService")
-
-            userinputservice.MouseBehavior = Enum.MouseBehavior.Default --this worky i thinky
-            userinputservice.MouseIconEnabled = true
 		else
 			main.Visible = not not x
-            local userinputservice = game:GetService("UserInputService")
-            userinputservice.MouseBehavior = Enum.MouseBehavior.LockCenter
-            userinputservice.MouseIconEnabled = false
 		end
 	end
 	function windowFunctions:MoveTabSlider(tabObject)
@@ -6248,6 +6243,20 @@ function library:CreateWindow(options, ...)
 			Value = library.configuration.hideKeybind,
 			Callback = function()
 				lasthidebing = os.clock()
+
+                if (isMenuShowing == true) then
+                    local userinputservice = game:GetService("UserInputService")
+                    userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+                    userinputservice.MouseIconEnabled = true
+
+                    isMenuShowing = false
+                else
+                    local userinputservice = game:GetService("UserInputService")
+                    userinputservice.MouseBehavior = Enum.MouseBehavior.LockCenter
+                    userinputservice.MouseIconEnabled = false
+
+                    isMenuShowing = true
+                end
 			end
 		}}, {"AddLabel", "__Designer.Label.Version", settingssection, {
 			Name = "Library Version: " .. tostring(library.Version or "?")
