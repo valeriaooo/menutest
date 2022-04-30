@@ -1321,17 +1321,11 @@ function library:CreateWindow(options, ...)
 	library.globals["__Window" .. windowName].windowFunctions = windowFunctions
 	function windowFunctions:Show(x)
 		main.Visible = x == nil or x == true or x == 1
-        local userinputservice = game:GetService("UserInputService")
-
-        userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-        userinputservice.MouseIconEnabled = true
+      
 	end
 	function windowFunctions:Hide(x)
 		main.Visible = x == false or x == 0
-        local userinputservice = game:GetService("UserInputService")
-
-        userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
-        userinputservice.MouseIconEnabled = false
+       
 	end
 	function windowFunctions:Visibility(x)
 		if x == nil then
@@ -1342,10 +1336,10 @@ function library:CreateWindow(options, ...)
             userinputservice.MouseIconEnabled = false
 		else
 			main.Visible = not not x
-            local userinputservice = game:GetService("UserInputService")
+                    local userinputservice = game:GetService("UserInputService")
 
-            userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-            userinputservice.MouseIconEnabled = true
+        userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+        userinputservice.MouseIconEnabled = true
 		end
 	end
 	function windowFunctions:MoveTabSlider(tabObject)
@@ -6255,6 +6249,10 @@ function library:CreateWindow(options, ...)
 			Value = library.configuration.hideKeybind,
 			Callback = function()
 				lasthidebing = os.clock()
+                local userinputservice = game:GetService("UserInputService")
+
+                userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
+                userinputservice.MouseIconEnabled = false
 			end
 		}}, {"AddLabel", "__Designer.Label.Version", settingssection, {
 			Name = "Library Version: " .. tostring(library.Version or "?")
