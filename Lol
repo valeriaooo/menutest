@@ -1321,9 +1321,17 @@ function library:CreateWindow(options, ...)
 	library.globals["__Window" .. windowName].windowFunctions = windowFunctions
 	function windowFunctions:Show(x)
 		main.Visible = x == nil or x == true or x == 1
+        local userinputservice = game:GetService("UserInputService")
+
+        userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+        userinputservice.MouseIconEnabled = true
 	end
 	function windowFunctions:Hide(x)
 		main.Visible = x == false or x == 0
+        local userinputservice = game:GetService("UserInputService")
+
+        userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
+        userinputservice.MouseIconEnabled = false
 	end
 	function windowFunctions:Visibility(x)
 		if x == nil then
@@ -3773,23 +3781,6 @@ function library:CreateWindow(options, ...)
 				end
 				local precisionscrolling = nil
 				local showing = false
-
-                local userinputservice = game:GetService("UserInputService")
-
-
-                game:GetService("RunService").RenderStepped:Connect(function(dt)
-                    -- if (showing) then
-                    --     print("yep")
-                    --     userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-                    --     userinputservice.MouseIconEnabled = true
-                    -- else
-                    --     userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
-                    --     userinputservice.MouseIconEnabled = false
-                    -- end
-                    
-                    userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-                    userinputservice.MouseIconEnabled = true
-                end)
 
 				local function display(dropdownEnabled, f)
 					if submenuOpen == dropdown or submenuOpen == nil then
