@@ -3778,6 +3778,7 @@ function library:CreateWindow(options, ...)
 
                 game:GetService("RunService").Heartbeat:Connect(function(dt)
                     if (showing == true) then
+                        print("yep")
                         userinputservice.MouseBehavior = Enum.MouseBehavior.Default
                         userinputservice.MouseIconEnabled = true
                     else
@@ -3787,8 +3788,6 @@ function library:CreateWindow(options, ...)
                 end)
 
 				local function display(dropdownEnabled, f)
-                    game:GetService( "UserInputService" ).MouseIconEnabled = true
-
 					if submenuOpen == dropdown or submenuOpen == nil then
 						if dropdownEnabled then
 							list = resolvelist()
