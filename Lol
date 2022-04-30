@@ -1336,10 +1336,9 @@ function library:CreateWindow(options, ...)
             userinputservice.MouseIconEnabled = true
 		else
 			main.Visible = not not x
-                    local userinputservice = game:GetService("UserInputService")
-
-        userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-        userinputservice.MouseIconEnabled = true
+            local userinputservice = game:GetService("UserInputService")
+            userinputservice.MouseBehavior = Enum.MouseBehavior.LockCenter
+            userinputservice.MouseIconEnabled = false
 		end
 	end
 	function windowFunctions:MoveTabSlider(tabObject)
