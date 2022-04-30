@@ -1336,8 +1336,16 @@ function library:CreateWindow(options, ...)
 	function windowFunctions:Visibility(x)
 		if x == nil then
 			main.Visible = not main.Visible
+            local userinputservice = game:GetService("UserInputService")
+
+            userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
+            userinputservice.MouseIconEnabled = false
 		else
 			main.Visible = not not x
+            local userinputservice = game:GetService("UserInputService")
+
+            userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+            userinputservice.MouseIconEnabled = true
 		end
 	end
 	function windowFunctions:MoveTabSlider(tabObject)
