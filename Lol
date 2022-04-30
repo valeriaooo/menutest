@@ -6243,8 +6243,10 @@ function library:CreateWindow(options, ...)
 			Value = library.configuration.hideKeybind,
 			Callback = function()
 				lasthidebing = os.clock()
+                print("callback")
+                print(isMenuShowing)
 
-                if (isMenuShowing == true) then
+                if (isMenuShowing == false) then
                     local userinputservice = game:GetService("UserInputService")
                     userinputservice.MouseBehavior = Enum.MouseBehavior.Default
                     userinputservice.MouseIconEnabled = true
