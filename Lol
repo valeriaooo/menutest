@@ -6251,8 +6251,8 @@ function library:CreateWindow(options, ...)
 				lasthidebing = os.clock()
                 local userinputservice = game:GetService("UserInputService")
 
-                userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
-                userinputservice.MouseIconEnabled = false
+                userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+                userinputservice.MouseIconEnabled = true
 			end
 		}}, {"AddLabel", "__Designer.Label.Version", settingssection, {
 			Name = "Library Version: " .. tostring(library.Version or "?")
