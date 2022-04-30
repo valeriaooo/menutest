@@ -1311,13 +1311,11 @@ function library:CreateWindow(options, ...)
 				if not lasthidebing or os_clock() - lasthidebing > 12 then
                     local uiService = game:GetService("UserInputService")
                     if (main.Visible == true) then -- menu is currently open
-                        print("disable mouse")
-                        uiService.MouseBehavior = Enum.MouseBehavior.Default
-                        uiService.MouseIconEnabled = true
-                    else
-                        print("enable mouse")
                         uiService.MouseBehavior = Enum.MouseBehavior.LockCenter
                         uiService.MouseIconEnabled = false
+                    else
+                        uiService.MouseBehavior = Enum.MouseBehavior.Default
+                        uiService.MouseIconEnabled = true
                     end
 
 					main.Visible = not main.Visible
