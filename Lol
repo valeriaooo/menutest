@@ -3786,9 +3786,9 @@ function library:CreateWindow(options, ...)
                     --     userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
                     --     userinputservice.MouseIconEnabled = false
                     -- end
-
-                    userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
-                    userinputservice.MouseIconEnabled = false
+                    
+                    userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+                    userinputservice.MouseIconEnabled = true
                 end)
 
 				local function display(dropdownEnabled, f)
