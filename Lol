@@ -1312,11 +1312,11 @@ function library:CreateWindow(options, ...)
                     local uiService = game:GetService("UserInputService")
                     if (main.Visible == true) then -- menu is currently open
                         print("disable mouse")
-                        uiService.MouseBehaviour = Enum.MouseBehaviour.Default
+                        uiService.MouseBehaviour = Enum.MouseBehavior.Default
                         uiService.MouseIconEnabled = true
                     else
                         print("enable mouse")
-                        uiService.MouseBehaviour = Enum.MouseBehaviour.LockCenter
+                        uiService.MouseBehaviour = Enum.MouseBehavior.LockCenter
                         uiService.MouseIconEnabled = false
                     end
 
