@@ -6248,10 +6248,6 @@ function library:CreateWindow(options, ...)
 			Value = library.configuration.hideKeybind,
 			Callback = function()
 				lasthidebing = os.clock()
-                local userinputservice = game:GetService("UserInputService")
-
-                userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-                userinputservice.MouseIconEnabled = true
 			end
 		}}, {"AddLabel", "__Designer.Label.Version", settingssection, {
 			Name = "Library Version: " .. tostring(library.Version or "?")
