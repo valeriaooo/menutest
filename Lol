@@ -1332,8 +1332,8 @@ function library:CreateWindow(options, ...)
 			main.Visible = not main.Visible
             local userinputservice = game:GetService("UserInputService")
 
-            userinputservice.MouseBehavior = Enum.MouseBehavior.MouseLocked
-            userinputservice.MouseIconEnabled = false
+            userinputservice.MouseBehavior = Enum.MouseBehavior.Default --this worky i thinky
+            userinputservice.MouseIconEnabled = true
 		else
 			main.Visible = not not x
                     local userinputservice = game:GetService("UserInputService")
