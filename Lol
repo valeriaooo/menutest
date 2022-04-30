@@ -1642,6 +1642,7 @@ function library:CreateWindow(options, ...)
 				toggleHeadline.Size = UDim2.fromOffset(170, 11)
 				toggleHeadline.Font = Enum.Font.Code
 				toggleHeadline.Text = toggleName or "???"
+                toggleHeadline.RichText = true
 				toggleHeadline.TextColor3 = library.colors.elementText
 				local colored_toggleHeadline_TextColor3 = {toggleHeadline, "TextColor3", "elementText", (lockedup and 0.5) or nil}
 				colored[1 + #colored] = colored_toggleHeadline_TextColor3
