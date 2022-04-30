@@ -1304,12 +1304,13 @@ function library:CreateWindow(options, ...)
 	tabSlider.Size = UDim2:fromOffset(1)
 	tabSlider.Visible = false
 	do
-		local os_clock = os.clock
+		local os_clock = os.clock 
 		library.signals[1 + #library.signals] = userInputService.InputBegan:Connect(function(keyCode, gameProcessedEvent)
 			gameProcessedEvent = gameProcessedEvent or userInputService:GetFocusedTextBox()
 			if not gameProcessedEvent and keyCode.KeyCode == library.configuration.hideKeybind then
 				if not lasthidebing or os_clock() - lasthidebing > 12 then
 					main.Visible = not main.Visible
+
 				end
 				lasthidebing = nil
 			end
@@ -6243,22 +6244,7 @@ function library:CreateWindow(options, ...)
 			Value = library.configuration.hideKeybind,
 			Callback = function()
 				lasthidebing = os.clock()
-                print("callback")
-                print(isMenuShowing)
-
-                if (isMenuShowing == false) then
-                    local userinputservice = game:GetService("UserInputService")
-                    userinputservice.MouseBehavior = Enum.MouseBehavior.Default
-                    userinputservice.MouseIconEnabled = true
-
-                    isMenuShowing = false
-                else
-                    local userinputservice = game:GetService("UserInputService")
-                    userinputservice.MouseBehavior = Enum.MouseBehavior.LockCenter
-                    userinputservice.MouseIconEnabled = false
-
-                    isMenuShowing = true
-                end
+                print("yep :3")
 			end
 		}}, {"AddLabel", "__Designer.Label.Version", settingssection, {
 			Name = "Library Version: " .. tostring(library.Version or "?")
