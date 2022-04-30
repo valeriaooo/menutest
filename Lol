@@ -1310,15 +1310,18 @@ function library:CreateWindow(options, ...)
 			if not gameProcessedEvent and keyCode.KeyCode == library.configuration.hideKeybind then
 				if not lasthidebing or os_clock() - lasthidebing > 12 then
                     local uiService = game:GetService("UserInputService")
+
                     if (main.Visible == true) then -- menu is currently open
-                        uiService.MouseBehavior = Enum.MouseBehavior.Default
-                        uiService.MouseIconEnabled = true
-                    else
+                        print("yep :)")
+
                         uiService.MouseBehavior = Enum.MouseBehavior.LockCenter
                         uiService.MouseIconEnabled = false
+                    else
+                        uiService.MouseBehavior = Enum.MouseBehavior.Default
+                        uiService.MouseIconEnabled = true
                     end
 
-					main.Visible = not main.Visible
+                    main.Visible = not main.Visible
 				end
 				lasthidebing = nil
 			end
