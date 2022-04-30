@@ -1634,6 +1634,7 @@ function library:CreateWindow(options, ...)
 				toggleButton.TextColor3 = Color3.new()
 				toggleButton.TextSize = 14
 				toggleButton.TextTransparency = 1
+                toggleButton.RichText = true
 				toggleHeadline.Name = "toggleHeadline"
 				toggleHeadline.Parent = newToggle
 				toggleHeadline.BackgroundColor3 = Color3.new(1, 1, 1)
